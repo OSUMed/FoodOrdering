@@ -1,13 +1,17 @@
-import Colors from "@/src/constants/Colors";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { Button } from "react-native-paper";
 import { Product } from "../types";
+import Colors from "@/constants/Colors";
 
 const ProductListItem = ({ product }: { product: Product }) => {
   console.log(product);
   return (
     <View style={styles.container}>
-      <Image source={{ uri: product.image }} style={styles.image} />
+      <Image
+        source={{ uri: product.image }}
+        style={styles.image}
+        resizeMode="contain"
+      />
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.price}>${product.price}</Text>
       <Button icon="camera" mode="contained">
@@ -23,7 +27,9 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 20,
+    flex: 1,
+    maxWidth: "50%",
   },
   title: {
     fontSize: 20,
